@@ -1,0 +1,56 @@
+{
+  "name": "chai-ethers",
+  "description": "Chai Matchers for ethers type (copied from @ethereum-waffle/chai but without dependencies on ganache-core, etc...)",
+  "version": "0.0.1",
+  "author": "Ronan Sandford",
+  "repository": "git@github.com:wighawag/chai-ethers.git",
+  "private": false,
+  "license": "MIT",
+  "keywords": [
+    "ethereum",
+    "smart-contracts",
+    "solidity",
+    "testing",
+    "javascript",
+    "typescript",
+    "library"
+  ],
+  "homepage": "https://github.com/wighawag/chai-ethers",
+  "bugs": {
+    "url": "https://github.com/wighawag/chai-ethers/issues"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.ts",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "yarn build",
+    "test": "cross-env NODE_ENV=test && mocha",
+    "lint": "eslint '{src,test}/**/*.ts'",
+    "lint:fix": "eslint --fix '{src,test}/**/*.ts'",
+    "build": "rimraf ./dist && yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc -p tsconfig.build.json --outDir dist/esm --module ES6",
+    "build:cjs": "tsc -p tsconfig.build.json --outDir dist/cjs --declaration false"
+  },
+  "engines": {
+    "node": ">=10.0"
+  },
+  "dependencies": {
+    "ethers": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.3",
+    "@types/chai-as-promised": "^7.1.2",
+    "@types/mocha": "^5.2.7",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2",
+    "mocha": "^7.1.2",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.9.1",
+    "typescript": "^3.8.3"
+  }
+}
